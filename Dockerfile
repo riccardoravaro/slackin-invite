@@ -10,4 +10,4 @@ RUN npm install --unsafe-perm
 
 EXPOSE 3000
 
-CMD ./bin/slackin $SLACK_SUBDOMAIN $SLACK_API_TOKEN
+CMD ./bin/slackin --port 3000 $SLACK_SUBDOMAIN $SLACK_API_TOKEN
