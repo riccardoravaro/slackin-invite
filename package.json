@@ -24,15 +24,17 @@
     "cors": "2.7.1",
     "debug": "2.1.1",
     "email-regex": "1.0.0",
+    "ethereumjs-util": "^5.1.2",
     "express": "4.11.0",
+    "gulp": "^3.9.0",
     "gulp-babel": "6.1.1",
     "gulp-rimraf": "0.2.0",
-    "gulp": "3.9.0",
     "hostenv": "1.0.1",
     "opentype.js": "0.4.4",
     "socket.io": "1.4.8",
     "superagent": "0.21.0",
-    "vd": "0.1.0"
+    "vd": "0.1.0",
+    "web3": "^0.19.1"
   },
   "license": "MIT",
   "devDependencies": {
