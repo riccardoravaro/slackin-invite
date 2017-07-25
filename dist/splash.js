@@ -48,7 +48,9 @@ function splash(_ref) {
   // xxx: single build
   (0, _vd2.default)('script', '\n      data = {};\n      data.path = ' + JSON.stringify(path) + ';\n    '),
   //dom('script src=https://cdn.socket.io/socket.io-1.4.4.js'),
-  (0, _vd2.default)('script src=' + path + 'assets/socket.io.1.4.4.js'), (0, _vd2.default)('script src=' + path + 'assets/superagent.js'), (0, _vd2.default)('script src=' + path + 'assets/client.js'));
+  (0, _vd2.default)('script src=' + path + 'assets/socket.io.1.4.4.js'), (0, _vd2.default)('script src=' + path + 'assets/superagent.js'),
+  // dom(`script src=${path}assets/client.js`),
+  (0, _vd2.default)('script src=' + path + 'assets/bundle.js'));
   return div;
 }
 
