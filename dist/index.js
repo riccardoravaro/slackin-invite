@@ -59,6 +59,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // our code
 // es6 runtime requirements
+var sigUtil = require('eth-sig-util');
+
+// their code
 function slackin(_ref) {
   var token = _ref.token,
       _ref$interval = _ref.interval,
@@ -256,5 +259,3 @@ function slackin(_ref) {
 
   return srv;
 }
-
-// their code

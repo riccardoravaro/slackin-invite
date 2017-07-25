@@ -24,6 +24,7 @@
     "cors": "2.7.1",
     "debug": "2.1.1",
     "email-regex": "1.0.0",
+    "eth-sig-util": "^1.2.2",
     "ethereumjs-util": "^5.1.2",
     "express": "4.11.0",
     "gulp": "^3.9.0",
@@ -38,7 +39,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "eslint": "2.12.0",
+    "eslint": "^2.13.1",
     "eslint-config-default": "0.2.0",
     "mocha": "2.2.4",
     "nock": "2.17.0",
@@ -61,7 +62,8 @@
     "test": "mocha && eslint lib/**",
     "postinstall": "gulp",
     "build": "gulp",
-    "start": "chmod +x bin/slackin && ./bin/slackin"
+    "start": "chmod +x bin/slackin && ./bin/slackin",
+    "dev": "node bin/slackin -p 8080 goodbyespam xoxp-213390296007-212462469363-213447216823-9e98cb66ea10de3ca2fbd195f3efaf9d"
   },
   "now": {
     "files": [

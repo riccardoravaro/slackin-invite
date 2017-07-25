@@ -11,6 +11,8 @@ var _vd2 = _interopRequireDefault(_vd);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var sigUtil = require('eth-sig-util');
+
 function splash(_ref) {
   var path = _ref.path,
       name = _ref.name,
@@ -25,13 +27,24 @@ function splash(_ref) {
 
   var div = (0, _vd2.default)('.splash', !iframe && (0, _vd2.default)('.logos', logo && (0, _vd2.default)('.logo.org'), (0, _vd2.default)('.logo.slack')), (0, _vd2.default)('p', 'Join ', (0, _vd2.default)('b', name),
   // mention single single-channel inline
-  channels && channels.length === 1 && (0, _vd2.default)('span', ' #', channels[0]), ' on Slack.'), (0, _vd2.default)('p', 'Sign into your Metamask account then click the button below to sign a message and get your invite.'), (0, _vd2.default)('button id="ethSignButton"', 'eth_sign'), (0, _vd2.default)('p.status', active ? [(0, _vd2.default)('b.active', active), ' users online now of ', (0, _vd2.default)('b.total', total), ' registered.'] : [(0, _vd2.default)('b.total', total), ' users are registered so far.']), (0, _vd2.default)('form id=invite', channels && (channels.length > 1
+  channels && channels.length === 1 && (0, _vd2.default)('span', ' #', channels[0]), ' on Slack.'),
+  // dom('p.status',
+  //   active
+  //     ? [
+  //       dom('b.active', active), ' users online now of ',
+  //       dom('b.total', total), ' registered.'
+  //     ]
+  //     : [dom('b.total', total), ' users are registered so far.']
+  // ),
+  (0, _vd2.default)('form id=invite', channels && (channels.length > 1
   // channel selection when there are multiple
   ? (0, _vd2.default)('select.form-item name=channel', channels.map(function (channel) {
     return (0, _vd2.default)('option', { value: channel, text: channel });
   }))
   // otherwise a fixed channel
-  : (0, _vd2.default)('input type=hidden name=channel', { value: channels[0] })), (0, _vd2.default)('input.form-item type=email name=email placeholder=you@yourdomain.com ' + (!iframe ? 'autofocus' : '')), coc && (0, _vd2.default)('.coc', (0, _vd2.default)('label', (0, _vd2.default)('input type=checkbox name=coc value=1'), 'I agree to the ', (0, _vd2.default)('a', { href: coc, target: '_blank' }, 'Code of Conduct'), '.')), (0, _vd2.default)('button.loading', 'Get my Invite')), (0, _vd2.default)('p.signin', 'or ', (0, _vd2.default)('a href=https://' + org + '.slack.com target=_top', 'sign in'), '.'), !iframe && (0, _vd2.default)('footer', 'powered by ', (0, _vd2.default)('a href=http://rauchg.com/slackin target=_blank', 'slackin')), style({ logo: logo, active: active, large: large, iframe: iframe }),
+  : (0, _vd2.default)('input type=hidden name=channel', { value: channels[0] })), (0, _vd2.default)('p', 'Sign into your Metamask account and enter your email below. \n Then, click the button below to sign a message and get your invite.'), (0, _vd2.default)('input.form-item type=email name=email placeholder=you@yourdomain.com ' + (!iframe ? 'autofocus' : '')), coc && (0, _vd2.default)('.coc', (0, _vd2.default)('label', (0, _vd2.default)('input type=checkbox name=coc value=1'), 'I agree to the ', (0, _vd2.default)('a', { href: coc, target: '_blank' }, 'Code of Conduct'), '.')), (0, _vd2.default)('button id="ethSignButton"', 'Get my Invite')
+  //   dom('button.loading', 'Get my Invite')
+  ), (0, _vd2.default)('p.signin', 'or ', (0, _vd2.default)('a href=https://' + org + '.slack.com target=_top', 'sign in'), '.'), !iframe && (0, _vd2.default)('footer', 'powered by ', (0, _vd2.default)('a href=http://rauchg.com/slackin target=_blank', 'slackin')), style({ logo: logo, active: active, large: large, iframe: iframe }),
   // xxx: single build
   (0, _vd2.default)('script', '\n      data = {};\n      data.path = ' + JSON.stringify(path) + ';\n    '),
   //dom('script src=https://cdn.socket.io/socket.io-1.4.4.js'),
@@ -96,7 +109,7 @@ function style() {
     });
 
     css.add('.logo.slack', {
-      'background-image': 'url(assets/slack.svg)'
+      'background-image': 'url(assets/gnosis.jpg)'
     });
 
     if (logo) {
