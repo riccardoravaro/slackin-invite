@@ -62,6 +62,7 @@
     "test": "mocha && eslint lib/**",
     "postinstall": "gulp",
     "build": "gulp",
+    "brow": "browserify lib/assets/client.js > lib/assets/bundle.js",
     "start": "chmod +x bin/slackin && ./bin/slackin",
     "dev": "node bin/slackin -p 8080 goodbyespam xoxp-213390296007-212462469363-213447216823-9e98cb66ea10de3ca2fbd195f3efaf9d"
   },
