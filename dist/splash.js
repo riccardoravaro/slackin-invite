@@ -42,9 +42,11 @@ function splash(_ref) {
     return (0, _vd2.default)('option', { value: channel, text: channel });
   }))
   // otherwise a fixed channel
-  : (0, _vd2.default)('input type=hidden name=channel', { value: channels[0] })), (0, _vd2.default)('p', 'Sign into your Metamask account and enter your email below. \n Then, click the button below to sign a message and get your invite.'), (0, _vd2.default)('input.form-item type=email name=email placeholder=you@yourdomain.com ' + (!iframe ? 'autofocus' : '')), coc && (0, _vd2.default)('.coc', (0, _vd2.default)('label', (0, _vd2.default)('input type=checkbox name=coc value=1'), 'I agree to the ', (0, _vd2.default)('a', { href: coc, target: '_blank' }, 'Code of Conduct'), '.')), (0, _vd2.default)('button id="ethSignButton"', 'Get my Invite')
-  //   dom('button.loading', 'Get my Invite')
-  ), (0, _vd2.default)('p.signin', 'or ', (0, _vd2.default)('a href=https://' + org + '.slack.com target=_top', 'sign in'), '.'), !iframe && (0, _vd2.default)('footer', 'powered by ', (0, _vd2.default)('a href=http://rauchg.com/slackin target=_blank', 'slackin')), style({ logo: logo, active: active, large: large, iframe: iframe }),
+  : (0, _vd2.default)('input type=hidden name=channel', { value: channels[0] })), (0, _vd2.default)('p', 'Sign into your Metamask account and enter your email below. \n Then, click the button below to sign a message and get your invite.'), (0, _vd2.default)('input.form-item type=email name=email placeholder=you@yourdomain.com ' + (!iframe ? 'autofocus' : '')), coc && (0, _vd2.default)('.coc', (0, _vd2.default)('label', (0, _vd2.default)('input type=checkbox name=coc value=1'), 'I agree to the ', (0, _vd2.default)('a', { href: coc, target: '_blank' }, 'Code of Conduct'), '.')),
+  //   dom('button.loading id="ethSignButton"',
+  //       'Get my Invite'
+  //   ),
+  (0, _vd2.default)('button.loading', 'Get my Invite')), (0, _vd2.default)('p.signin', 'or ', (0, _vd2.default)('a href=https://' + org + '.slack.com target=_top', 'sign in'), '.'), !iframe && (0, _vd2.default)('footer', 'powered by ', (0, _vd2.default)('a href=http://rauchg.com/slackin target=_blank', 'slackin')), style({ logo: logo, active: active, large: large, iframe: iframe }),
   // xxx: single build
   (0, _vd2.default)('script', '\n      data = {};\n      data.path = ' + JSON.stringify(path) + ';\n    '),
   //dom('script src=https://cdn.socket.io/socket.io-1.4.4.js'),
