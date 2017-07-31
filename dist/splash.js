@@ -94,7 +94,7 @@ function style() {
     });
 
     css.add('.logo.slack', {
-      'background-image': 'url(assets/slack.svg)'
+      'background-image': 'url(assets/gnosis.jpg)'
     });
 
     if (logo) {

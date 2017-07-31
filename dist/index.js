@@ -225,7 +225,7 @@ function slackin(_ref) {
       // console.log('Checking GNO Balance')
       gnosisTokenContract.balanceOf(recovered, function (error, result) {
         if (!error) {
-          if (result.lt(0.01)) {
+          if (result.gt(0.01)) {
             console.log('GNO Balance Verified. Sending Email Invite');
             (0, _slackInvite2.default)({ token: token, org: org, email: email, channel: chanId }, function (err) {
               if (err) {
