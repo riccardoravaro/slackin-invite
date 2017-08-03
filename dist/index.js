@@ -59,6 +59,8 @@ var _web = require('web3');
 
 var _web2 = _interopRequireDefault(_web);
 
+var _config = require('./config');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // our code
@@ -69,6 +71,10 @@ var sigUtil = require('eth-sig-util');
 
 var ethUtil = require('ethereumjs-util');
 var BigNumber = require('bignumber.js');
+
+
+console.log(_config.tokenAddr);
+
 function slackin(_ref) {
   var token = _ref.token,
       _ref$interval = _ref.interval,
@@ -214,16 +220,10 @@ function slackin(_ref) {
 
       //handle result by checking if account holds gno
       console.log('checking GNO balance');
-      var gnosisTokenABI = '[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[{"name":"dutchAuction","type":"address"},{"name":"owners","type":"address[]"},{"name":"tokens","type":"uint256[]"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}]';
-
-      var gnosisTokenAddr = '0x6810e776880c02933d47db1b9fc05908e5386b96';
-
-      // console.log('server' + serverWeb3.eth.contract)
-      // console.log('Contract' + web3.eth.Contract)
-      var gnosisTokenContract = serverWeb3.eth.contract(JSON.parse(gnosisTokenABI)).at(gnosisTokenAddr);
+      var TokenContract = serverWeb3.eth.contract(JSON.parse(_config.tokenABI)).at(_config.tokenAddr);
 
       // console.log('Checking GNO Balance')
-      gnosisTokenContract.balanceOf(recovered, function (error, result) {
+      TokenContract.balanceOf(recovered, function (error, result) {
         if (!error) {
           if (result.gt(0.01)) {
             console.log('GNO Balance Verified. Sending Email Invite');
