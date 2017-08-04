@@ -1,5 +1,11 @@
 ![](https://github.com/zeit/art/blob/e081cf46e6609b51ac485dcc337ac6644c0da5e7/slackin/repo-banner.png)
 
+## Token Verification
+- [Gnosis](https://gnosis.pm/) has modified this app to authenticate users who wish to join their community [slack](https://slack.gnosis.pm/). 
+- To recieve an invite, users must hold GNO tokens in their MetaMask browser account.
+- The app will then call the .balanceOf() function of the Gnosis Token Smart Contract on the Ethereum Mainnet.
+- If you wish to adapt this for your own Token's community slack, it is as easy as modifying [config.js](https://github.com/gnosis/slackin-invite/blob/master/lib/config.js)
+
 ## Features
 
 - A landing page you can point users to fill in their emails and receive an invite (`https://slack.yourdomain.com`)
